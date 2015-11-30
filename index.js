@@ -38,7 +38,6 @@ function cliExitError(msg) {
 
 function cliExitClean(msg) {
 
-	console.log(getPackageInfo());
 	console.log(chalk.green(msg));
 	process.exit(0);
 }
@@ -89,8 +88,22 @@ function importConfig(options) {
 			cliExitError(err);
 		}
 
+		var item = '';
 		for (var configItem of obj) {
-			console.log(configItem.type);
+
+			item = {
+				type: configItem.type,
+				path: configItem.path,
+				value: configItem.value
+			};
+
+			OO.config.setItem(item, function(err, body) {
+				if (err) {
+					process.stdout.write(chalk.red('-'));
+				} else {
+					process.stdout.write(chalk.green('+'));
+				}
+			});
 		}
 		
 	});
@@ -117,7 +130,7 @@ function exportConfig(options) {
 					cliExitError(err);
 				}
 
-				console.log("Successfully export OO configuration to: " + options.export);
+				cliExitClean("Successfully export OO configuration to: " + options.export);
 				return true;
 			});
 		}
@@ -128,6 +141,8 @@ var cliOptions = cliCheck();
 if (!cliOptions) {
 	cliExitError();
 }
+
+console.log(getPackageInfo());
 
 if (cliOptions.export) {
 	return exportConfig(cliOptions);
