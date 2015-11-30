@@ -3,12 +3,45 @@
 var OO 				= require('operations-orchestration-api');
 var commandLineArgs = require('command-line-args');
 var jsonfile 		= require('jsonfile');
+var chalk			= require('chalk');
 
 var options = {
 	username: 'admin',
 	password: 'admin',
 	baseUrl: 'http://localhost:8050'
 };
+
+function getPackageInfo() {
+
+	var pkg = require('./package.json');
+
+	var str = '';
+	str += pkg.name + "\n";
+	str += 'version: ' + pkg.version + ' by ' + pkg.author + "\n";
+	return str;
+}
+
+function cliShowUsage(cliUsage, msg) {
+
+	console.log(getPackageInfo());
+	console.log(chalk.red(Error(msg)));
+	console.error(cliUsage);
+	process.exit(1);
+}
+
+function cliExitError(msg) {
+
+	console.log(getPackageInfo());
+	console.log(chalk.red(msg));
+	process.exit(1);
+}
+
+function cliExitClean(msg) {
+
+	console.log(getPackageInfo());
+	console.log(chalk.green(msg));
+	process.exit(0);
+}
 
 function cliCheck() {
 
@@ -24,8 +57,7 @@ function cliCheck() {
 	var cliUsage = cli.getUsage();
 
 	if (!cliOptions.url) {
-		console.error(Error("must provide url for the OO REST API server"));
-		console.log(cliUsage);
+		cliShowUsage(cliUsage, "must provide url for the OO REST API server");
 		return false;
 	} else {
 		options.baseUrl = cliOptions.url + '/oo/rest/v1';
@@ -40,8 +72,7 @@ function cliCheck() {
 	}
 
 	if (!cliOptions.import && !cliOptions.export) {
-		console.error(Error("must provide at least one option of --export or --import options available"));
-		console.log(cliUsage);
+		cliShowUsage(cliUsage, "must provide at least one option of --export or --import options available");
 		return false;
 	}
 
@@ -55,8 +86,7 @@ function importConfig(options) {
 	jsonfile.readFile(options.import, function(err, obj) {
 
 		if (err) {
-			console.error(err);
-			process.exit(1);
+			cliExitError(err);
 		}
 
 		for (var configItem of obj) {
@@ -71,22 +101,20 @@ function importConfig(options) {
 function exportConfig(options) {
 
 	if (!options.export) {
-		console.error(Error("must provide export file name"));
+		cliExitError(Error("must provide export file name"));
 		return false;
 	}
 
 	OO.config.getAllItems(function(err, body) {
 
 		if (err) {
-			console.error(err);
-			process.exit(1);
+			cliExitError(err);
 		}
 
 		if (body) {
 			jsonfile.writeFile(options.export, body, {spaces: 2}, function(err) {
 				if (err) {
-					console.error(err);
-					process.exit(1);
+					cliExitError(err);
 				}
 
 				console.log("Successfully export OO configuration to: " + options.export);
@@ -98,15 +126,15 @@ function exportConfig(options) {
 
 var cliOptions = cliCheck();
 if (!cliOptions) {
-	process.exit(1);
+	cliExitError();
 }
 
 if (cliOptions.export) {
 	return exportConfig(cliOptions);
-	process.exit(0);
+	cliExitClean();
 }
 
 if (cliOptions.import) {
 	return importConfig(cliOptions);
-	process.exit(0);
+	cliExitClean();
 }
