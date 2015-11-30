@@ -13,11 +13,11 @@ var options = {
 function cliCheck() {
 
 	var cli = commandLineArgs([
-	  { name: 'username', alias: 'u', type: String },
-	  { name: 'password', alias: 'p', type: String },
-	  { name: 'url', type: String },
-	  { name: 'import', type: String },
-	  { name: 'export', type: String }
+	  { name: 'username', alias: 'u', type: String, description: 'Username for Operations Orchestration that is allowed to query the API' },
+	  { name: 'password', alias: 'p', type: String, description: 'Password for the Username provided' },
+	  { name: 'url', type: String, description: 'The URL where Operations Orchestration API is available. Example: http://localhost:8050' },
+	  { name: 'import', type: String, description: 'Provide a JSON file name to import all the data from into an OO install, expecting an array of objects' },
+	  { name: 'export', type: String, description: 'Provide a file name to export all the data to as JSON object' }
 	]);
 
 	var cliOptions = cli.parse();
