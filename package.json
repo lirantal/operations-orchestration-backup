@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/lirantal/operations-orchestration-backup/issues"
   },
-  "homepage": "https://github.com/lirantal/operations-orchestration-backup#readme"
+  "homepage": "https://github.com/lirantal/operations-orchestration-backup#readme",
+  "dependencies": {
+    "command-line-args": "^2.1.3",
+    "jsonfile": "^2.2.3",
+    "operations-orchestration-api": "^1.0.0"
+  }
 }
