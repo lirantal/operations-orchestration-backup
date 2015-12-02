@@ -1,4 +1,8 @@
 'use strict'
+/**
+ * operations-orchestration-backup
+ * @module operations-orchestration-backup
+ */
 
 var OO 				= require('operations-orchestration-api');
 var commandLineArgs = require('command-line-args');
@@ -11,6 +15,12 @@ var options = {
 	baseUrl: 'http://localhost:8050'
 };
 
+/**
+ * get module package information
+ * 
+ * @method	getPackageInfo
+ * @return	{string}		package information as a sring
+ */
 function getPackageInfo() {
 
 	var pkg = require('./package.json');
@@ -21,6 +31,13 @@ function getPackageInfo() {
 	return str;
 }
 
+/**
+ * prints out command line usage information and exit with an error code
+ * 
+ * @method	cliShowUsage
+ * @param 	{string}	command line arguments usage help
+ * @param 	{string}	the error message to print to the screen
+ */
 function cliShowUsage(cliUsage, msg) {
 
 	console.log(getPackageInfo());
@@ -29,6 +46,12 @@ function cliShowUsage(cliUsage, msg) {
 	process.exit(1);
 }
 
+/**
+ * prints out an error message
+ * 
+ * @method	cliExitError
+ * @param 	{string}	the error message to print on the screen
+ */
 function cliExitError(msg) {
 
 	console.log(getPackageInfo());
@@ -36,12 +59,24 @@ function cliExitError(msg) {
 	process.exit(1);
 }
 
+/**
+ * prints out a success message
+ * 
+ * @method	cliExitClean
+ * @param 	{string}	a success message text to print to the screen
+ */
 function cliExitClean(msg) {
 
 	console.log(chalk.green(msg));
 	process.exit(0);
 }
 
+/**
+ * parse command line arguments to set the options for connecting to OO 
+ * 
+ * @method	cliCheck
+ * @return	{object}		return the object with the passed parameters to the command line
+ */
 function cliCheck() {
 
 	var cli = commandLineArgs([
@@ -80,6 +115,12 @@ function cliCheck() {
 	return cliOptions;
 }
 
+/**
+ * imports configuration from a JSON file into an OO install
+ * 
+ * @method	importConfig
+ * @param 	{object}	the command line arguments options object
+ */
 function importConfig(options) {
 
 	jsonfile.readFile(options.import, function(err, obj) {
@@ -104,13 +145,19 @@ function importConfig(options) {
 					process.stdout.write(chalk.green('+'));
 				}
 			});
+
 		}
 		
 	});
 
 }
 
-
+/**
+ * exports an OO install configuration to a JSON file
+ * 
+ * @method	exportConfig
+ * @param 	{object}	the command line arguments options object
+ */
 function exportConfig(options) {
 
 	if (!options.export) {
