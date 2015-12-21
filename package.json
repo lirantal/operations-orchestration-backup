@@ -1,10 +1,13 @@
 {
   "name": "operations-orchestration-backup",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "NodeJS Backup Tool (Import/Export) for HPE's Operations Orchestration",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "operations-orchestration-backup": "./index.js"
   },
   "repository": {
     "type": "git",
