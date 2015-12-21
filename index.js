@@ -1,4 +1,6 @@
+#!/usr/bin/env node
 'use strict'
+
 /**
  * operations-orchestration-backup
  * @module operations-orchestration-backup
