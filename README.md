@@ -1,3 +1,9 @@
+[![view on npm](http://img.shields.io/npm/v/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
+[![view on npm](http://img.shields.io/npm/l/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
+[![npm module downloads](http://img.shields.io/npm/dt/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
+[![Dependency Status](https://david-dm.org/lirantal/operations-orchestration-backup.svg)](https://david-dm.org/lirantal/operations-orchestration-backup)
+[![Build](https://travis-ci.org/lirantal/operations-orchestration-backup.svg?branch=master)](https://travis-ci.org/lirantal/operations-orchestration-backup)
+[![Coverage Status](https://coveralls.io/repos/lirantal/operations-orchestration-backup/badge.svg?branch=master&service=github)](https://coveralls.io/github/lirantal/operations-orchestration-backup?branch=master)
 
 # operations-orchestration-backup
 NodeJS Backup Tool (Import/Export) for HPE's [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration)
