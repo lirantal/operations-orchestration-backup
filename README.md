@@ -17,12 +17,14 @@ This tool is a shell command just any other and is able to perform an export or 
 Example of how to run it with the required arguments
 
 
-## Performing an export of an OO install to a JSON file:
+## Export from OO 
+Performing an export of an OO install to a JSON file:
 ```bash
 operations-orchestration-backup --username admin --password admin --url http://localhost:8050 --export mydata.json
 ```
 
-## Performing an import from a previously prepared JSON file (an array of objects) directly into an OO install:
+## Import to OO
+Performing an import from a previously prepared JSON file (an array of objects) directly into an OO install:
 ```bash
 operations-orchestration-backup --username admin --password admin --url http://localhost:8050 --import mydata.json
 ```
