@@ -15,6 +15,14 @@ npm install operations-orchestration-backup
 # Usage
 Once installed, this tool provides a shell command that can be executed to to perform an export or import of data to an HPE [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration) deployment.
 
+## Command line options:
+| Param | Type | Description |
+| --- | --- | --- |
+| -u or --username | string | Username for Operations Orchestration that is allowed to query the API |
+| -p or --password | string | Password for the Username provided |
+| --import | string | Provide a JSON file name to import all the data from into an OO install expecting an array of objects |
+| --export | string | Provide a file name to export all the data to as JSON object |
+
 
 ## Export from OO 
 Performing an export of an OO install to a JSON file:
