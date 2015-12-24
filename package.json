@@ -1,6 +1,6 @@
 {
   "name": "operations-orchestration-backup",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "NodeJS Backup Tool (Import/Export) for HPE's Operations Orchestration",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,6 @@
     "chalk": "^1.1.1",
     "command-line-args": "^2.1.3",
     "jsonfile": "^2.2.3",
-    "operations-orchestration-api": "^1.0.0"
+    "operations-orchestration-api": "^1.1.1"
   }
 }
