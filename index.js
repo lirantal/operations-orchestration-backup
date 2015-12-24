@@ -56,7 +56,6 @@ function cliShowUsage(cliUsage, msg) {
  */
 function cliExitError(msg) {
 
-	console.log(getPackageInfo());
 	console.log(chalk.red(msg));
 	process.exit(1);
 }
