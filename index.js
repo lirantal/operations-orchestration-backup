@@ -133,13 +133,7 @@ function importConfig(options) {
 		var item = '';
 		for (var configItem of obj) {
 
-			item = {
-				type: configItem.type,
-				path: configItem.path,
-				value: configItem.value
-			};
-
-			OO.config.setItem(item, function(err, body) {
+			OO.config.setItem(configItem, function(err, body) {
 				if (err) {
 					process.stdout.write(chalk.red('-'));
 				} else {
