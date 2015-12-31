@@ -17,6 +17,7 @@ operations-orchestration-backup is a handy console command line utility which al
 
 Operations Orchestration Backup tool is developed with NodeJS, and as such it requires the runtime and toolchain for it.
 Installing NodeJS (depending on your platform):
+
 1. https://nodejs.org - once downloaded and installed you will have both `nodejs` runtime and `npm` (the package manager) available in your operation system.
 
 ## Installation
