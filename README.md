@@ -8,6 +8,16 @@
 # operations-orchestration-backup
 NodeJS Backup Tool (Import/Export) for HPE's [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration)
 
+**Currently suports only backup of configuration items**
+
+Todo:
+
+1. Backup of Users, and Roles
+2. Backup of Flows
+3. Backup of Schedules
+4. Backup of Audits
+5. Backup of LDAP Configuration
+
 # About
 operations-orchestration-backup is a handy console command line utility which allows to easily interact with an installed deployment of HPE's Operations Orchestration application in order to quickly perform a backup export or import operation.
 
