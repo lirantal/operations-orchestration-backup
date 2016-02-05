@@ -40,6 +40,10 @@ npm install -g operations-orchestration-backup
 * Linux Users - you may need to prefix the install command with sudo: `sudo npm install -g operations-orchestration-backup`
 * Windows Users - you will need to run installation command from within an Administrator command line
 
+## Windows Users
+
+For Windows users, you can use a pre-built package that includes the node.exe binary and all the modules dependencies for this project by downloading it from [HPE Live Network](https://hpln.hpe.com/contentoffering/operations-orchestration-backup-tool-importexport)
+
 
 # Usage
 Once installed, this tool provides a shell command that can be executed to to perform an export or import of data to an HPE [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration) deployment.
