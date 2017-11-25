@@ -5,6 +5,8 @@
 [![Build](https://travis-ci.org/lirantal/operations-orchestration-backup.svg?branch=master)](https://travis-ci.org/lirantal/operations-orchestration-backup)
 
 # operations-orchestration-backup
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/lirantal/operations-orchestration-backup.svg)](https://greenkeeper.io/)
 NodeJS Backup Tool (Import/Export) for HPE's [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration)
 
 **Currently suports only backup of configuration items**
