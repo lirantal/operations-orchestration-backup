@@ -6,6 +6,8 @@
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](https://github.com/nodejs/security-wg/blob/master/processes/responsible_disclosure_template.md)
 
 # operations-orchestration-backup
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/lirantal/operations-orchestration-backup.svg)](https://greenkeeper.io/)
 NodeJS Backup Tool (Import/Export) for HPE's [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration)
 
 **Currently suports only backup of configuration items**
