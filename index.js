@@ -6,10 +6,11 @@
  * @module operations-orchestration-backup
  */
 
-var OO 			= require('operations-orchestration-api');
-var commandLineArgs	= require('command-line-args');
-var jsonfile		= require('jsonfile');
-var chalk		= require('chalk');
+var OO = require('operations-orchestration-api');
+var commandLineArgs = require('command-line-args');
+var commandLineUsage = require('command-line-usage');
+var jsonfile = require('jsonfile');
+var chalk = require('chalk');
 
 var options = {
 	username: 'admin',
@@ -80,16 +81,24 @@ function cliExitClean(msg) {
  */
 function cliCheck() {
 
-	var cli = commandLineArgs([
-	  { name: 'username', alias: 'u', type: String, description: 'Username for Operations Orchestration that is allowed to query the API' },
-	  { name: 'password', alias: 'p', type: String, description: 'Password for the Username provided' },
-	  { name: 'url', type: String, description: 'The URL where Operations Orchestration API is available. Example: http://localhost:8050' },
-	  { name: 'import', type: String, description: 'Provide a JSON file name to import all the data from into an OO install, expecting an array of objects' },
-	  { name: 'export', type: String, description: 'Provide a file name to export all the data to as JSON object' }
-	]);
+	var cli = [
+		{ name: 'username', alias: 'u', type: String, description: 'Username for Operations Orchestration that is allowed to query the API' },
+		{ name: 'password', alias: 'p', type: String, description: 'Password for the Username provided' },
+		{ name: 'url', type: String, description: 'The URL where Operations Orchestration API is available. Example: http://localhost:8050' },
+		{ name: 'import', type: String, description: 'Provide a JSON file name to import all the data from into an OO install, expecting an array of objects' },
+		{ name: 'export', type: String, description: 'Provide a file name to export all the data to as JSON object' }
+	];
 
-	var cliOptions = cli.parse();
-	var cliUsage = cli.getUsage();
+	var cliOptions = commandLineArgs(cli);
+
+	var cliUsageStruct = [
+		{
+			header: 'Options',
+			optionList: cli
+		}
+	];
+
+	var cliUsage = commandLineUsage(cliUsageStruct);
 
 	if (!cliOptions.url) {
 		cliShowUsage(cliUsage, "must provide url for the OO REST API server");
@@ -124,7 +133,7 @@ function cliCheck() {
  */
 function importConfig(options) {
 
-	jsonfile.readFile(options.import, function(err, obj) {
+	jsonfile.readFile(options.import, async function (err, obj) {
 
 		if (err) {
 			cliExitError(err);
@@ -132,17 +141,13 @@ function importConfig(options) {
 
 		var item = '';
 		for (var configItem of obj) {
-
-			OO.config.setItem(configItem, function(err, body) {
-				if (err) {
-					process.stdout.write(chalk.red('-'));
-				} else {
-					process.stdout.write(chalk.green('+'));
-				}
-			});
-
+			try {
+				await OO.config.setItem(configItem)
+				process.stdout.write(chalk.green('+'));
+			} catch (err) {
+				process.stdout.write(chalk.red('-'));
+			}
 		}
-		
 	});
 
 }
@@ -153,21 +158,18 @@ function importConfig(options) {
  * @method	exportConfig
  * @param 	{object}	the command line arguments options object
  */
-function exportConfig(options) {
+async function exportConfig(options) {
 
 	if (!options.export) {
 		cliExitError(Error("must provide export file name"));
 		return false;
 	}
 
-	OO.config.getAllItems(function(err, body) {
-
-		if (err) {
-			cliExitError(err);
-		}
+	try {
+		const body = await OO.config.getAllItems();
 
 		if (body) {
-			jsonfile.writeFile(options.export, body, {spaces: 2}, function(err) {
+			jsonfile.writeFile(options.export, body, { spaces: 2 }, function (err) {
 				if (err) {
 					cliExitError(err);
 				}
@@ -176,7 +178,9 @@ function exportConfig(options) {
 				return true;
 			});
 		}
-	});
+	} catch (err) {
+		cliExitError(err);
+	}
 }
 
 var cliOptions = cliCheck();
@@ -187,11 +191,10 @@ if (!cliOptions) {
 console.log(getPackageInfo());
 
 if (cliOptions.export) {
-	return exportConfig(cliOptions);
-	cliExitClean();
+	return exportConfig(cliOptions).then(() => cliExitClean());
+
 }
 
 if (cliOptions.import) {
-	return importConfig(cliOptions);
-	cliExitClean();
+	return importConfig(cliOptions).then(() => cliExitClean());
 }
