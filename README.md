@@ -5,6 +5,8 @@
 [![Build](https://travis-ci.org/lirantal/operations-orchestration-backup.svg?branch=master)](https://travis-ci.org/lirantal/operations-orchestration-backup)
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](https://github.com/nodejs/security-wg/blob/master/processes/responsible_disclosure_template.md)
 
+[![operations-orchestration-backup](https://snyk.io/advisor/npm-package/operations-orchestration-backup/badge.svg)](https://snyk.io/advisor/npm-package/operations-orchestration-backup)
+
 # operations-orchestration-backup
 NodeJS Backup Tool (Import/Export) for HPE's [Operations Orchestration](https://hpln.hpe.com/group/operations-orchestration)
 
