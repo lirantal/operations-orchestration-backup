@@ -73,5 +73,9 @@ operations-orchestration-backup --username admin --password admin --url http://l
 
 
 
+## Contributing
+
+Please consult [CONTRIBUTING](./CONTRIBUTING.md) for guidelines on contributing to this project.
+
 # Author
 Liran Tal <liran.tal@gmail.com>
