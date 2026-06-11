@@ -1,8 +1,4 @@
 {
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
-  },
   "name": "operations-orchestration-backup",
   "version": "2.0.0",
   "description": "NodeJS Backup Tool (Import/Export) for HPE's Operations Orchestration",
@@ -53,5 +49,9 @@
     "mocha-lcov-reporter": "^1.0.0",
     "should": "^8.0.2",
     "concat-stream": "^1.5.1"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
