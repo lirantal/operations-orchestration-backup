@@ -27,12 +27,19 @@ describe('Operations Orchestration Backup CLI - Test Suite', function() {
 
     it('CLI with no arguments should show the usage information', function (done) {
         var proc = child.spawn(this.executable);
-        proc.stdout.pipe(concat(function (output) {
+        var output = '';
 
-        	var cliOutput = output.toString('utf8');
-        	cliOutput.should.match(/Error: must provide url for the OO REST API server/);
-
-            done();
+        proc.stdout.pipe(concat(function (stdout) {
+            output += stdout.toString('utf8');
         }));
+
+        proc.stderr.pipe(concat(function (stderr) {
+            output += stderr.toString('utf8');
+        }));
+
+        proc.on('close', function () {
+            output.should.match(/Error: must provide url for the OO REST API server/);
+            done();
+        });
     });
 });
