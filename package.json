@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/test.js",
-    "coverage": "node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coverage": "node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "lint": "echo \"No lint step configured\"",
+    "build": "echo \"No build step configured\"",
+    "lint:markdown": "markdownlint -c .github/.markdownlint.yml '**/**.md'",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "bin": {
     "operations-orchestration-backup": "./index.js"
@@ -48,7 +53,10 @@
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0",
     "should": "^8.0.2",
-    "concat-stream": "^1.5.1"
+    "concat-stream": "^1.5.1",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.31.0",
+    "markdownlint-cli": "0.45.0"
   },
   "publishConfig": {
     "provenance": true,
