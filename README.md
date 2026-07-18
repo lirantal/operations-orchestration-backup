@@ -1,7 +1,7 @@
 [![view on npm](http://img.shields.io/npm/v/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
 [![view on npm](http://img.shields.io/npm/l/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
 [![npm module downloads](http://img.shields.io/npm/dt/operations-orchestration-backup.svg)](https://www.npmjs.org/package/operations-orchestration-backup)
-[![Build](https://travis-ci.org/lirantal/operations-orchestration-backup.svg?branch=master)](https://travis-ci.org/lirantal/operations-orchestration-backup)
+<a href="https://github.com/lirantal/operations-orchestration-backup/actions/workflows/ci.yml"><img src="https://github.com/lirantal/operations-orchestration-backup/actions/workflows/ci.yml/badge.svg?branch=master" alt="build"/></a>
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](https://github.com/nodejs/security-wg/blob/master/processes/responsible_disclosure_template.md)
 
 
