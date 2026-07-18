@@ -48,15 +48,15 @@
     "operations-orchestration-api": "^2.1.4"
   },
   "devDependencies": {
-    "coveralls": "^2.11.6",
+    "coveralls": "^3.1.1",
     "istanbul": "^0.4.1",
-    "mocha": "^2.3.4",
+    "mocha": "^11.7.6",
     "mocha-lcov-reporter": "^1.0.0",
-    "should": "^8.0.2",
-    "concat-stream": "^1.5.1",
-    "@changesets/changelog-github": "^0.6.0",
+    "should": "^13.2.3",
+    "concat-stream": "^2.0.0",
+    "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
-    "markdownlint-cli": "0.45.0"
+    "markdownlint-cli": "0.49.0"
   },
   "publishConfig": {
     "provenance": true,
