@@ -5,7 +5,7 @@
 
 
 # operations-orchestration-backup
-NodeJS Backup Tool (Import/Export) for HPE's Operations Orchestration (historical href: https://hpln.hpe.com/group/operations-orchestration)
+NodeJS Backup Tool (Import/Export) for HPE's Operations Orchestration (historical href: `https://hpln dot hpe dot com/group/operations-orchestration`)
 
 **Currently suports only backup of configuration items**
 
@@ -42,11 +42,11 @@ npm install -g operations-orchestration-backup
 
 ## Windows Users
 
-For Windows users, you can use a pre-built package that includes the node.exe binary and all the modules dependencies for this project by downloading it from HPE Live Network (historical href: https://hpln.hpe.com/contentoffering/operations-orchestration-backup-tool-importexport)
+For Windows users, you can use a pre-built package that includes the node.exe binary and all the modules dependencies for this project by downloading it from HPE Live Network (historical href: `https://hpln dot hpe dot com/contentoffering/operations-orchestration-backup-tool-importexport`)
 
 
 # Usage
-Once installed, this tool provides a shell command that can be executed to to perform an export or import of data to an HPE Operations Orchestration (historical href: https://hpln.hpe.com/group/operations-orchestration) deployment.
+Once installed, this tool provides a shell command that can be executed to to perform an export or import of data to an HPE Operations Orchestration (historical href: `https://hpln dot hpe dot com/group/operations-orchestration`) deployment.
 
 ## Command line options:
 | Param | Type | Description |
