@@ -41,9 +41,9 @@
   },
   "homepage": "https://github.com/lirantal/operations-orchestration-backup#readme",
   "dependencies": {
-    "chalk": "^4.1.2",
-    "command-line-args": "^4.0.7",
-    "command-line-usage": "^4.1.0",
+    "chalk": "^6.0.0",
+    "command-line-args": "^6.0.2",
+    "command-line-usage": "^7.0.4",
     "jsonfile": "^6.1.0",
     "operations-orchestration-api": "^2.1.4"
   },
